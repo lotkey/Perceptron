@@ -44,6 +44,12 @@ class Translator:
         data = self.info
         random.shuffle(data)
 
+        offset = 0
+        for i in range(0, len(data)):
+            if len(data[i - offset]) == 0:
+                del data[i - offset]
+                offset += 1
+
         index = int(len(data) * .8)
 
         training = data[0:index]
